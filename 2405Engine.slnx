@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="2405Engine/2405Engine.csproj" />
+  <Project Path="2405EngineLibrary/2405EngineLibrary.csproj" />
+</Solution>
