@@ -4,7 +4,7 @@
 namespace _2405Engine;
 public class Engine : Core
 {
-    public Engine() : base("_2405Engine", 1080, 720, false)
+    public Engine() : base("_2405Engine", 1920, 1080, false)
     {
 
     }

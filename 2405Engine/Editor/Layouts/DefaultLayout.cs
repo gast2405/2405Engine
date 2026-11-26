@@ -14,7 +14,7 @@ public class DefaultLayout : EditorLayout
     private EditorWindow bottomRightWindow;
     public DefaultLayout()
     {
-        topLeftWindow = new EditorWindow();
+        topLeftWindow = new EditorWindow(new EditorTab());
         bottomLeftWindow = new EditorWindow(new HierarchyTab());
         //topRightWindow = new EditorWindow(Vector2.Zero, 25f, 25f);    
         //bottomRightWindow = new EditorWindow(Vector2.Zero, 25f, 25f);

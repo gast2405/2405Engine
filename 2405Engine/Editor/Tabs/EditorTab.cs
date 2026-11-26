@@ -33,7 +33,7 @@ public class EditorTab
         ParentPanel.AddChild(selectionPanel);
 
         StackPanel buttonContainer = new StackPanel();
-        buttonContainer.Orientation = Orientation.Horizontal;
+        buttonContainer.Orientation = Orientation.Vertical;
         buttonContainer.Spacing = buttonMargin;
 
         buttonContainer.Anchor(Gum.Wireframe.Anchor.TopLeft);

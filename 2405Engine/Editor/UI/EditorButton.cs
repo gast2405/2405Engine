@@ -16,7 +16,7 @@ public class EditorButton : Button
         ButtonVisual buttonVisual = (ButtonVisual)Visual;
 
         buttonVisual.Height = 6f;
-        buttonVisual.HeightUnits = DimensionUnitType.Absolute;
+        buttonVisual.HeightUnits = DimensionUnitType.RelativeToChildren;
         buttonVisual.Width = 10f;
         buttonVisual.WidthUnits = DimensionUnitType.RelativeToChildren;
 

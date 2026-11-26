@@ -16,7 +16,7 @@ public class EditorWindow
 
     public List<EditorTab> Tabs = new List<EditorTab> { };
 
-    public Panel Panel;
+    public EditorPanel Panel;
 
 
     public EditorWindow(EditorTab startTab = null, float width = 10f, float height = 10f)
@@ -24,7 +24,7 @@ public class EditorWindow
         Height = height;
         Width = width;
 
-        Panel = new Panel
+        Panel = new EditorPanel
         {
             X = Position.X,
             Y = Position.Y,
