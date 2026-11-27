@@ -30,7 +30,7 @@ public class EditorButton : Button
         textInstance.Color = Microsoft.Xna.Framework.Color.Black;
         textInstance.UseCustomFont = false;
         textInstance.CustomFontFile = "fonts/DefaultEditorFont.fnt";
-        textInstance.FontScale = 0.25f;
+        //textInstance.FontScale = 0.25f;
         textInstance.Anchor(Gum.Wireframe.Anchor.Center);
         textInstance.Width = 0;
         textInstance.WidthUnits = DimensionUnitType.RelativeToChildren;

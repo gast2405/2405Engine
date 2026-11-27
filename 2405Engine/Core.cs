@@ -37,6 +37,8 @@ public class Core : Game
 
     public static EditorLayout CurrentEditorLayout { get; private set; }
 
+    public static Panel EditorGui { get; private set; }
+
     public Core(string title, int width, int height, bool fullScreen)
     {
         if (s_instance != null)
@@ -66,6 +68,9 @@ public class Core : Game
         Audio = new AudioController();
         RootGameNode = new GameNode("Root");
         InitializeGum();
+        EditorGui = new Panel();
+        EditorGui.Dock(Gum.Wireframe.Dock.Fill);
+        EditorGui.AddToRoot();
         CurrentEditorLayout = new DefaultLayout();
         base.Initialize();
     }
@@ -118,8 +123,15 @@ public class Core : Game
         FrameworkElement.TabKeyCombos.Add(
            new KeyCombo() { PushedKey = Gum.Forms.Input.Keys.Down });
 
-        Gum.GumService.Default.CanvasWidth = GraphicsDevice.PresentationParameters.BackBufferWidth / 4.0f;
-        Gum.GumService.Default.CanvasHeight = GraphicsDevice.PresentationParameters.BackBufferHeight / 4.0f;
-        Gum.GumService.Default.Renderer.Camera.Zoom = 4.0f;
+        Gum.GumService.Default.CanvasWidth = GraphicsDevice.PresentationParameters.BackBufferWidth;
+
+        Gum.GumService.Default.CanvasHeight = GraphicsDevice.PresentationParameters.BackBufferHeight;
+
+        Gum.GumService.Default.Renderer.Camera.Zoom = 1.0f;
+    }
+
+    public void VisiualizeEditorGUI(bool enable = true)
+    {
+        EditorGui.IsVisible = enable;
     }
 }

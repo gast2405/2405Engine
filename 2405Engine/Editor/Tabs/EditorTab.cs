@@ -1,8 +1,10 @@
 ﻿using _2405Engine.Editor.UI;
+using _2405Engine.Editor.Windows;
 using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,44 +12,40 @@ namespace _2405Engine.Editor.Tabs;
 
 public class EditorTab
 {
-    protected Panel ParentPanel;
-    private Panel selectionPanel;
+    public string Name { get { return GetName(); } }
+    protected EditorWindow OwnerWindow;
+    protected Panel ParentPanel => OwnerWindow.ContentPanel;
+    protected Panel TabPanel;
 
-    private float buttonMargin = 10f;
-
-    public EditorTab() 
-    
+    protected EditorTab(EditorWindow ownerWindow)
     {
-        
-    }
-    public EditorTab(Panel parentPanel)
-    {
-        Initialize(parentPanel);
+        OwnerWindow = ownerWindow;
     }
 
-    public virtual void Initialize(Panel parentPanel)
+    public virtual void Initialize()
     {
-        ParentPanel = parentPanel;
-        selectionPanel = new Panel();
-        selectionPanel.Dock(Gum.Wireframe.Dock.Fill);
-        ParentPanel.AddChild(selectionPanel);
+        if (ParentPanel == null)
+        {
+            throw new InvalidOperationException("Panel of editor window has not been initialized.");
+        }
+        TabPanel = new Panel();
+        TabPanel.Dock(Gum.Wireframe.Dock.Fill);
+        ParentPanel.AddChild(TabPanel);
+    }
 
-        StackPanel buttonContainer = new StackPanel();
-        buttonContainer.Orientation = Orientation.Vertical;
-        buttonContainer.Spacing = buttonMargin;
+    protected virtual string GetName()
+    {
+        return "tab";
+    }
 
-        buttonContainer.Anchor(Gum.Wireframe.Anchor.TopLeft);
-        selectionPanel.AddChild(buttonContainer);
+    public virtual void Hide()
+    {
+        TabPanel.IsVisible = false;
+    }
 
-        Button hierarchyButton = new EditorButton();
-        hierarchyButton.Text = "Hierarchy";
-        //hierarchyButton.Click += HandleHierarchyClicked;
-        buttonContainer.AddChild(hierarchyButton);
-
-        Button inspectorButton = new EditorButton();
-        inspectorButton.Text = "Inspector";
-        //inspectorButton.Click += HandleInspectorClicked;
-        buttonContainer.AddChild(inspectorButton);
+    public virtual void Show()
+    {
+        TabPanel.IsVisible = true;
     }
 
 }

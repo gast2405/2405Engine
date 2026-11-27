@@ -15,7 +15,7 @@ public class EditorPanel : Panel
 {
     public EditorPanel() : base()
     {
-        //Visual.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+        //WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
         //Visual.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
         //Anchor(Gum.Wireframe.Anchor.Center);
 
@@ -23,7 +23,7 @@ public class EditorPanel : Panel
         // add background
         var background = new ColoredRectangleRuntime();
         background.Dock(Gum.Wireframe.Dock.Fill);
-        background.Color = new Color(30, 30, 36);
+        background.Color = new Color(100, 0, 0, 100);
         AddChild(background);
     }
 }

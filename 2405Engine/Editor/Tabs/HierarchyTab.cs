@@ -11,21 +11,22 @@ namespace _2405Engine.Editor.Tabs;
 
 public class HierarchyTab : EditorTab
 {
-    public HierarchyTab() : base()
+    public HierarchyTab(EditorWindow ownerWinodw) : base(ownerWinodw)
     {
 
     }
-    
-    public HierarchyTab(Panel parentPanel) : base(parentPanel)
-    {
-        Initialize(parentPanel);
-    }
 
-    public override void Initialize(Panel parentPanel)
+    public override void Initialize()
     {
+        base.Initialize();
         var title = new TextBox();
         title.Text = "Hello this is the Hierarchy";
-        parentPanel.AddChild(title);
+        TabPanel.AddChild(title);
     }
-    
+
+    protected override string GetName()
+    {
+        return "Hierarchy";
+    }
+
 }

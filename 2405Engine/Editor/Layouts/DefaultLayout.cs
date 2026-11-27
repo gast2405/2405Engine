@@ -14,18 +14,18 @@ public class DefaultLayout : EditorLayout
     private EditorWindow bottomRightWindow;
     public DefaultLayout()
     {
-        topLeftWindow = new EditorWindow(new EditorTab());
-        bottomLeftWindow = new EditorWindow(new HierarchyTab());
-        //topRightWindow = new EditorWindow(Vector2.Zero, 25f, 25f);    
-        //bottomRightWindow = new EditorWindow(Vector2.Zero, 25f, 25f);
+        topLeftWindow = new EditorWindow();
+        //bottomLeftWindow = new EditorWindow();
+        //topRightWindow = new EditorWindow();
+        //bottomRightWindow = new EditorWindow();
 
         topLeftWindow.Panel.Anchor(Gum.Wireframe.Anchor.TopLeft);
-        bottomLeftWindow.Panel.Anchor(Gum.Wireframe.Anchor.BottomLeft);
+        //bottomLeftWindow.Panel.Anchor(Gum.Wireframe.Anchor.BottomLeft);
         //topRightWindow.Panel.Anchor(Gum.Wireframe.Anchor.TopRight);
         //bottomRightWindow.Panel.Anchor(Gum.Wireframe.Anchor.BottomRight);
 
         topLeftWindow.Instantiate();
-        bottomLeftWindow.Instantiate();
+        //bottomLeftWindow.Instantiate();
         //topRightWindow.Instantiate();
         //bottomRightWindow.Instantiate();
     }

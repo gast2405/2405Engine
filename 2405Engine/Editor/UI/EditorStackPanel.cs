@@ -10,9 +10,9 @@ public class EditorStackPanel: StackPanel
 {
     public EditorStackPanel() : base()
     {
-        Visual.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToParent;
-        Visual.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToParent;
-        Anchor(Gum.Wireframe.Anchor.Center);
+        //Visual.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToParent;
+        //Visual.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToParent;
+        //Anchor(Gum.Wireframe.Anchor.Center);
 
         // add background
         //var background = new ColoredRectangleRuntime();

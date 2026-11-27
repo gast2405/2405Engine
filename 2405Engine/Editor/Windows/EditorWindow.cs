@@ -14,12 +14,15 @@ public class EditorWindow
     public float Height { get; set; }
     public float Width { get; set; }
 
-    public List<EditorTab> Tabs = new List<EditorTab> { };
+    public readonly EditorPanel Panel;
 
-    public EditorPanel Panel;
+    public Panel ContentPanel { get; private set; }
 
+    public EditorTabManager TabManager { get; private set; }
 
-    public EditorWindow(EditorTab startTab = null, float width = 10f, float height = 10f)
+    private EditorTabMenu tabMenu;
+
+    public EditorWindow(float width = 100f, float height = 100f)
     {
         Height = height;
         Width = width;
@@ -28,33 +31,32 @@ public class EditorWindow
         {
             X = Position.X,
             Y = Position.Y,
-            Height = Height,
-            Width = Width
+            Height = height,
+            Width = width
         };
 
-        if (startTab == null)
+        ContentPanel = new Panel
         {
-            Tabs.Add(new EditorTab(Panel));
-        } else
-        {
-            startTab.Initialize(Panel);
-            Tabs.Add(startTab);
-        }
-        
-        
+            X = 0,
+            Y = 35,
+            Width = width,
+            Height = height - 35
+        };
+
+        Panel.AddChild(ContentPanel);
     }
 
     public virtual void Instantiate()
     {
-        Panel.AddToRoot();
-    }
+        TabManager = new EditorTabManager();
 
-    private void HandleHierarchyClicked(object sender, EventArgs e)
-    {
-    }
+        tabMenu = new EditorTabMenu(TabManager);
 
-    private void HandleInspectorClicked(object sender, EventArgs e)
-    {
+        Panel.AddChild(tabMenu.MenuPanel);
+
+        TabManager.AddTab(new DefaultEditorTab(this));
+
+        Core.EditorGui.AddChild(Panel);
     }
 }
 
