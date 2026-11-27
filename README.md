@@ -8,7 +8,7 @@ This is a small game engine build on top of the Monogame framework and uses gum 
 
 ## How to start up
 
-You can open the 2405Engine.slnx file with visual studio. All scripts in 2405Engine and 2405EngineLibrary are written by myself.
+You can open the 2405Engine.slnx file with visual studio. All scripts in 2405Engine and 2405EngineLibrary are written by myself. (Actually some parts are from tutorials here and there)
 
 You can build using visual studio, and press the tilde key on your keyboard to open the GUI [STILL A WORK IN PROGRESS].
 ## How to play
