@@ -11,6 +11,11 @@ This is a small game engine build on top of the Monogame framework and uses gum 
 You can open the 2405Engine.slnx file with visual studio. All scripts in 2405Engine and 2405EngineLibrary are written by myself.
 
 You can build using visual studio, and press the tilde key on your keyboard to open the GUI [STILL A WORK IN PROGRESS].
+## How to play
+
+You can press the tilde key to toggle the editors GUI.
+
+Currently there is only one window that you can add tabs to (left click) and remove tabs from (right click).
 ## Improvement since last iteration
 
 This was an old project where i was working on building the foundation of my engine, but i never made a GUI for it.
