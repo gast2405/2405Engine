@@ -48,4 +48,11 @@ public class EditorTab
         TabPanel.IsVisible = true;
     }
 
+    public virtual void Remove()
+    {
+        if (TabPanel == null) return;
+        ParentPanel?.RemoveChild(TabPanel);
+        TabPanel = null;
+    }
+
 }

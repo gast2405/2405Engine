@@ -1,5 +1,6 @@
 ﻿using _2405Engine.Editor.UI;
 using _2405Engine.Editor.Windows;
+using _2405EngineLibrary.Input;
 using Gum.Forms.Controls;
 using System;
 using System.Collections.Generic;
@@ -37,9 +38,17 @@ public class EditorTabMenu
 
         button.Text = tab.Name;
 
+        // left click
         button.Click += (sender, args) =>
         {
             tabManager.SwitchTab(tab);
+        };
+
+        // right click
+        button.Visual.RightClick += (sender, args) =>
+        {
+            tabManager.RemoveTab(tab);
+            MenuPanel.RemoveChild(button);
         };
 
         MenuPanel.AddChild(button);

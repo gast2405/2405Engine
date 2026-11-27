@@ -22,6 +22,8 @@ public class EditorWindow
 
     private EditorTabMenu tabMenu;
 
+    private bool isDestroyed;
+
     public EditorWindow(float width = 100f, float height = 100f)
     {
         Height = height;
@@ -56,7 +58,17 @@ public class EditorWindow
 
         TabManager.AddTab(new DefaultEditorTab(this));
 
+        //destroys the window if all tabs are removed
+        TabManager.AllTabsRemoved += Destroy; 
+
         Core.EditorGui.AddChild(Panel);
+    }
+
+    public void Destroy()
+    {
+        if (isDestroyed) return;
+        isDestroyed = true;
+        Core.EditorGui.RemoveChild(Panel);
     }
 }
 
